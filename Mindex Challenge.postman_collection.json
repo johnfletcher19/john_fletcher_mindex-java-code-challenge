@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "0d60168a-c800-456f-9d35-3bd86a329e36",
+		"name": "Mindex Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29196835"
+	},
+	"item": [
+		{
+			"name": "CREATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employeeId\": \"16a596ae-edd3-4847-99fe-c4518e82c86f\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Lennon\",\n  \"position\": \"Development Manager\",\n  \"department\": \"Engineering\",\n  \"directReports\": [\n    {\n      \"employeeId\": \"b7839309-3348-463b-a7e3-5de1c168beb3\"\n    },\n    {\n      \"employeeId\": \"03aa1462-ffa9-4978-901b-7c001562cf6f\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employeeId\": \"16a596ae-edd3-4847-99fe-c4518e82c86f\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Lennon\",\n  \"position\": \"Senior Development Manager\",\n  \"department\": \"Engineering\",\n  \"directReports\": [\n    {\n      \"employeeId\": \"b7839309-3348-463b-a7e3-5de1c168beb3\"\n    },\n    {\n      \"employeeId\": \"03aa1462-ffa9-4978-901b-7c001562cf6f\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"16a596ae-edd3-4847-99fe-c4518e82c86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REPORTING STRUCTURE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reportingStructure/:employeeId",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						":employeeId"
+					],
+					"variable": [
+						{
+							"key": "employeeId",
+							"value": "16a596ae-edd3-4847-99fe-c4518e82c86f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE COMPENSATION",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employee\": {\n        \"employeeId\" : \"c0c2293d-16bd-4603-8e08-638a9d18b22c\"\n    },\n    \"salary\": \"134000\",\n    \"effectiveDate\": \"2024-10-20T00:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/compensation",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COMPENSATION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/compensation/:employeeId",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compensation",
+						":employeeId"
+					],
+					"variable": [
+						{
+							"key": "employeeId",
+							"value": "c0c2293d-16bd-4603-8e08-638a9d18b22c"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
