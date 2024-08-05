@@ -1,17 +1,23 @@
 package com.mindex.challenge.data;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import java.util.Collections;
 import java.util.List;
 
 public class Employee {
+    @Id
     private String employeeId;
     private String firstName;
     private String lastName;
     private String position;
     private String department;
+
+    @DBRef(lazy=true)
     private List<Employee> directReports;
 
-    public Employee() {
-    }
+    public Employee() {}
 
     public String getEmployeeId() {
         return employeeId;
@@ -54,7 +60,7 @@ public class Employee {
     }
 
     public List<Employee> getDirectReports() {
-        return directReports;
+        return this.directReports == null ? Collections.emptyList() : this.directReports;
     }
 
     public void setDirectReports(List<Employee> directReports) {
